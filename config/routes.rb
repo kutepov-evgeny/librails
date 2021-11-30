@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
-  root "articles#index"
 
-  #get "/articles", to: "articles#index"
-  #get "/articles/:id", to: "articles#show"
+  resources :topics
+  root "books#list"
+
+  get 'books/delete'
+  get 'books/show_subjects'
+  get 'books/get_from_request'
+
+  resources :books
+  resources :subjects
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
-  resources :articles do
-    resources :comments
-  end
 end
